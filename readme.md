@@ -1,8 +1,8 @@
-# urob's zmk-config
+# Chris' zmk-config
 
 This is my personal [ZMK firmware](https://github.com/zmkfirmware/zmk/)
 configuration. It consists of a 34-keys base layout that is re-used for various
-boards of different sizes, including a Corneish Zen, Glove80 and Planck.
+boards, including a Ferris Sweep, Fract, MikeFive, and MikeCinq.
 
 The configuration currently builds against `v0.3` of upstream ZMK, extended by various [ZMK
 modules](https://github.com/search?q=topic%3Azmk-module+fork%3Atrue+owner%3Aurob+&type=repositories).
@@ -24,7 +24,7 @@ manifest](https://github.com/urob/zmk-config/blob/main/config/west.yml).
 - Fully automated, nix-powered [local build environment](#local-build-environment)
 
 ![](draw/keymap.png)
-([Click here](https://raw.githubusercontent.com/urob/zmk-config/refs/heads/main/draw/base.svg)
+([Click here](https://raw.githubusercontent.com/chrismazanec/zmk-config/refs/heads/main/draw/base.svg)
 for a breakdown by layer - powered by
 [keymap-drawer](https://github.com/caksoylar/keymap-drawer).)
 
@@ -280,10 +280,27 @@ environment is _completely isolated_ and won't pollute your system.
    echo 'source $HOME/.nix-profile/share/nix-direnv/direnvrc' >> ~/.config/direnv/direnvrc
 
    # Optional: make direnv less verbose
-   echo '[global]\nwarn_timeout = "2m"\nhide_env_diff = true' >> ~/.config/direnv/direnv.toml
+   echo -e '[global]\nwarn_timeout = "2m"\nhide_env_diff = true' >> ~/.config/direnv/direnv.toml
 
    # Source the bashrc to activate the hook (or start a new shell)
    source ~/.bashrc
+   ```
+
+   For `fish`:
+
+   ```fish
+   # Install the shell-hook
+   echo 'direnv hook fish | source' >> ~/.config/fish/config.fish
+
+   # Enable nix-direnv (if installed in the previous step)
+   mkdir -p ~/.config/direnv
+   echo 'source $HOME/.nix-profile/share/nix-direnv/direnvrc' >> ~/.config/direnv/direnvrc
+
+   # Optional: make direnv less verbose
+   echo -e '[global]\nwarn_timeout = "2m"\nhide_env_diff = true' >> ~/.config/direnv/direnv.toml
+
+   # Source the config to activate the hook (or start a new shell)
+   source ~/.config/fish/config.fish
    ```
 
 #### Set up the workspace

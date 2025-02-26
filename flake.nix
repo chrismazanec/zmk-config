@@ -46,6 +46,7 @@
               # pkgs.findutils # find, xargs
               # pkgs.gnugrep
               # pkgs.gnused
+              pkgs.git
             ];
 
           env = {
