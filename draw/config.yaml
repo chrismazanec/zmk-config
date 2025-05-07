@@ -102,6 +102,8 @@ parse_config:
     C_VOL_DN: $$mdi:volume-medium$$
     C_NEXT: $$mdi:skip-forward$$
     C_PREV: $$mdi:skip-backward$$
+    C_BRI_UP: $$mdi:brightness-7$$
+    C_BRI_DN: $$mdi:brightness-5$$
 
     # defaults
     AMPERSAND: "&"

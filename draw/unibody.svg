@@ -1,5 +1,11 @@
 <svg width="1320" height="1010" viewBox="0 0 1320 1010" class="keymap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>/* start glyphs */
+<svg id="mdi:brightness-5">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-brightness-5" viewBox="0 0 24 24"><path d="M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,15.31L23.31,12L20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31Z" /></svg>
+</svg>
+<svg id="mdi:brightness-7">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-brightness-7" viewBox="0 0 24 24"><path d="M12,8A4,4 0 0,0 8,12A4,4 0 0,0 12,16A4,4 0 0,0 16,12A4,4 0 0,0 12,8M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31L23.31,12L20,8.69Z" /></svg>
+</svg>
 <svg id="mdi:play-pause">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-play-pause" viewBox="0 0 24 24"><path d="M3,5V19L11,12M13,19H16V5H13M18,5V19H21V5" /></svg>
 </svg>
@@ -319,18 +325,15 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(690, 0)" class="layer-Nav">
 <text x="0" y="8" class="label" id="Nav">Nav</text>
 <g transform="translate(0, 16)">
-<g transform="translate(30, 28)" class="key keypos-0">
-<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Alt+F4</text>
+<g transform="translate(30, 28)" class="key trans keypos-0">
+<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans"/>
 </g>
 <g transform="translate(90, 28)" class="key trans keypos-1">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans"/>
 </g>
 <g transform="translate(150, 28)" class="key keypos-2">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.6em">Prev</tspan><tspan x="0" dy="1.2em">Win</tspan>
-</text>
+<text x="0" y="0" class="key tap">Alt+Tab</text>
 </g>
 <g transform="translate(210, 28)" class="key keypos-3">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key"/>
@@ -478,8 +481,9 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(270, 28)" class="key trans keypos-4">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans"/>
 </g>
-<g transform="translate(330, 28)" class="key trans keypos-5">
-<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans"/>
+<g transform="translate(330, 28)" class="key keypos-5">
+<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key"/>
+<use href="#mdi:brightness-7" xlink:href="#mdi:brightness-7" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:brightness-7"/>
 </g>
 <g transform="translate(390, 28)" class="key keypos-6">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key"/>
@@ -519,8 +523,9 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(270, 84)" class="key trans keypos-14">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans"/>
 </g>
-<g transform="translate(330, 84)" class="key trans keypos-15">
-<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans"/>
+<g transform="translate(330, 84)" class="key keypos-15">
+<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key"/>
+<use href="#mdi:brightness-5" xlink:href="#mdi:brightness-5" x="-7" y="-7" height="14" width="14.0" class="key tap glyph mdi:brightness-5"/>
 </g>
 <g transform="translate(390, 84)" class="key keypos-16">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key"/>
@@ -541,8 +546,9 @@ path.combo { stroke: #7f7f7f; }
 </text>
 <text x="0" y="24" class="key hold">Alt</text>
 </g>
-<g transform="translate(570, 84)" class="key trans keypos-19">
-<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans"/>
+<g transform="translate(570, 84)" class="key keypos-19">
+<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Gui</text>
 </g>
 <g transform="translate(30, 140)" class="key keypos-20">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key"/>
@@ -663,17 +669,21 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(330, 84)" class="key trans keypos-15">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans"/>
 </g>
-<g transform="translate(390, 84)" class="key trans keypos-16">
-<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans"/>
+<g transform="translate(390, 84)" class="key keypos-16">
+<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Ctrl</text>
 </g>
-<g transform="translate(450, 84)" class="key trans keypos-17">
-<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans"/>
+<g transform="translate(450, 84)" class="key keypos-17">
+<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Shift</text>
 </g>
-<g transform="translate(510, 84)" class="key trans keypos-18">
-<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans"/>
+<g transform="translate(510, 84)" class="key keypos-18">
+<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Alt</text>
 </g>
-<g transform="translate(570, 84)" class="key trans keypos-19">
-<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans"/>
+<g transform="translate(570, 84)" class="key keypos-19">
+<rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Gui</text>
 </g>
 <g transform="translate(30, 140)" class="key trans keypos-20">
 <rect rx="6" ry="6" x="-28" y="-26" width="56" height="52" class="key trans"/>
