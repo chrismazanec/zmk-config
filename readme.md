@@ -2,7 +2,7 @@
 
 This is my personal [ZMK firmware](https://github.com/zmkfirmware/zmk/)
 configuration. It based on the awesome [urob/zmk-config](https://github.com/urob/zmk-config).
-It consists of a 34-keys base layout that is used for my Ferris Sweep.
+It consists of a 34-keys base layout that is re-used for various boards, including my Ferris Sweep and my Fract.
 
 My configuration currently builds against `v0.3` of upstream ZMK.
 Custom functionality is added through various
