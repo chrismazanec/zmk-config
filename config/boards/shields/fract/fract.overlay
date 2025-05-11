@@ -16,6 +16,7 @@
         compatible = "zmk,kscan-gpio-matrix";
         label = "KSCAN";
         diode-direction = "col2row";
+        wakeup-source;
 
         col-gpios
             = <&pro_micro 7 GPIO_ACTIVE_HIGH>
