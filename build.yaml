@@ -19,3 +19,7 @@ include:
     shield: cradio_right
   - board: nice_nano_v2
     shield: fract
+  - board: nice_nano_v2
+    shield: mikefive
+  - board: nice_nano_v2
+    shield: mikecinq
