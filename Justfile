@@ -59,7 +59,8 @@ draw:
     set -euo pipefail
     keymap -c "{{ draw }}/config.yaml" parse -z "{{ config }}/base.keymap" --virtual-layers Combos >"{{ draw }}/base.yaml"
     yq -Yi '.combos.[].l = ["Combos"]' "{{ draw }}/base.yaml"
-    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/base.yaml" -k "ferris/sweep" >"{{ draw }}/base.svg"
+    keymap -c "{{ draw }}/config.yaml" draw "{{ draw }}/base.yaml" -k "ferris/sweep" >"{{ draw }}/split.svg"
+    keymap -c "{{ draw }}/config-unibody.yaml" draw "{{ draw }}/base.yaml" --ortho-layout '{"split": true, "rows": 3, "columns": 5, "thumbs": 2}' >"{{ draw }}/unibody.svg"
 
 # initialize west
 init:
