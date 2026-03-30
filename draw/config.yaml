@@ -16,23 +16,25 @@ parse_config:
     "&bt BT_SEL 2": BT 3
     "&bt BT_SEL 3": BT 4
 
-    "&kp LC(INS)": Copy
-    "&kp LC(X)": Cut
-    "&kp LS(INS)": Paste
+    "&kp LG(C)": Copy
+    "&kp LG(X)": Cut
+    "&kp LG(V)": Paste
 
-    "&kp LG(LC(LEFT))": Prev Desk
-    "&kp LG(LC(RIGHT))": Next Desk
-    "&kp LG(LC(LS(A)))": Pin App
-    "&kp LG(LC(LS(Q)))": Pin Win
+    "&hml LS(LALT)TAB": Tab
+
+    "&hmr LCTRL LA(LC(LS(TAB)))": Prev Desk
+    "&hmr LALT LA(LS(TAB))": Next Desk
+    "&kp LC(UP)": Exposé
+    "&kp LA(LC(LS(F)))": Float
+    "&kp LA(LS(F))": Full Screen
 
     "&swapper": Next Win
-    "&kp LS(TAB)": Prev Win
+    "&kp LG(TAB)": Prev Win
     "&dot_spc": Sentence
     "&num_dance": { "t": "Numword", "s": "Sticky Num" }
     "&magic_shift": { "t": Magic, "h": "Shift" }
     "&smart_mouse": Smart Mouse
 
-    "&hml LS(LALT)TAB": Tab
     "&hm_combo_ldr": Leader
     "&hm_combo_ldrsh": Shift+Leader
     "&hm_combo_lpar": { "t": "(", "right": "<" }
