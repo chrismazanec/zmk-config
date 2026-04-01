@@ -14,37 +14,86 @@
         }; \
     };
 
-/* German umlauts */
-ZMK_LEADER_SEQUENCE(de_ae,      &uc UC_DE_AE,         A)  // ä
-ZMK_LEADER_SEQUENCE(de_oe,      &uc UC_DE_OE,         O)  // ö
-ZMK_LEADER_SEQUENCE(de_ue,      &uc UC_DE_UE,         U)  // ü
-ZMK_LEADER_SEQUENCE(de_eszett,  &uc UC_DE_SS,         S)  // ß
+#define ZMK_LEADER_UP_SEQUENCE(name, leader_bindings, leader_sequence) \
+    / { \
+        behaviors { \
+            leader_up: leader_up { \
+                compatible = "zmk,behavior-leader-key"; \
+                #binding-cells = <0>; \
+                leader_sequence_ ## name { \
+                    bindings = <leader_bindings>; \
+                    sequence = <leader_sequence>; \
+                }; \
+            }; \
+        }; \
+    };
 
-/* Greek letters */
-ZMK_LEADER_SEQUENCE(el_alpha,   &uc UC_EL_ALPHA,      E A)  // α
-ZMK_LEADER_SEQUENCE(el_beta,    &uc UC_EL_BETA,       E B)  // β
-ZMK_LEADER_SEQUENCE(el_gamma,   &uc UC_EL_GAMMA,      E G)  // γ
-ZMK_LEADER_SEQUENCE(el_delta,   &uc UC_EL_DELTA,      E D)  // δ
-ZMK_LEADER_SEQUENCE(el_epsilon, &uc UC_EL_EPSILON,    E E)  // ε
-ZMK_LEADER_SEQUENCE(el_zeta,    &uc UC_EL_ZETA,       E Z)  // ζ
-ZMK_LEADER_SEQUENCE(el_eta,     &uc UC_EL_ETA,        E H)  // η
-ZMK_LEADER_SEQUENCE(el_theta,   &uc UC_EL_THETA,      E V)  // θ
-ZMK_LEADER_SEQUENCE(el_iota,    &uc UC_EL_IOTA,       E I)  // ι
-ZMK_LEADER_SEQUENCE(el_kappa,   &uc UC_EL_KAPPA,      E K)  // κ
-ZMK_LEADER_SEQUENCE(el_lambda,  &uc UC_EL_LAMBDA,     E L)  // λ
-ZMK_LEADER_SEQUENCE(el_mu,      &uc UC_EL_MU,         E M)  // μ
-ZMK_LEADER_SEQUENCE(el_nu,      &uc UC_EL_NU,         E N)  // ν
-ZMK_LEADER_SEQUENCE(el_xi,      &uc UC_EL_XI,         E X)  // ξ
-ZMK_LEADER_SEQUENCE(el_omikron, &uc UC_EL_OMIKRON,    E O)  // ο
-ZMK_LEADER_SEQUENCE(el_pi,      &uc UC_EL_PI,         E P)  // π
-ZMK_LEADER_SEQUENCE(el_rho,     &uc UC_EL_RHO,        E R)  // ρ
-ZMK_LEADER_SEQUENCE(el_sigma,   &uc UC_EL_SIGMA,      E S)  // σ
-ZMK_LEADER_SEQUENCE(el_tau,     &uc UC_EL_TAU,        E T)  // τ
-ZMK_LEADER_SEQUENCE(el_upsilon, &uc UC_EL_UPSILON,    E U)  // υ
-ZMK_LEADER_SEQUENCE(el_phi,     &uc UC_EL_PHI,        E F)  // ϕ
-ZMK_LEADER_SEQUENCE(el_chi,     &uc UC_EL_CHI,        E C)  // χ
-ZMK_LEADER_SEQUENCE(el_psi,     &uc UC_EL_PSI,        E Y)  // ψ
-ZMK_LEADER_SEQUENCE(el_omega,   &uc UC_EL_OMEGA,      E W)  // ω
+/* Slovak dead key macros for ABC Extended (macOS)
+ * Uses Right Alt (RALT) for dead keys — Alacritty passes right Option through
+ * to macOS while left Option is sent as Alt to tmux/fish.
+ * Acute:      RAlt+E → letter
+ * Caron:      RAlt+V → letter
+ * Umlaut:     RAlt+U → letter
+ * Circumflex: RAlt+6 → letter
+ *
+ * Uppercase variants send dead key then Shift+letter.
+ * Triggered via separate leader_up behavior (3-key combo), so no shift
+ * interference with the dead key.
+ */
+
+// --- lowercase ---
+ZMK_MACRO(sk_m_aa, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(E)>, <&kp A>;)   // á
+ZMK_MACRO(sk_m_ea, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(E)>, <&kp E>;)   // é
+ZMK_MACRO(sk_m_ia, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(E)>, <&kp I>;)   // í
+ZMK_MACRO(sk_m_oa, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(E)>, <&kp O>;)   // ó
+ZMK_MACRO(sk_m_ua, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(E)>, <&kp U>;)   // ú
+ZMK_MACRO(sk_m_ya, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(E)>, <&kp Y>;)   // ý
+ZMK_MACRO(sk_m_ra, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(E)>, <&kp R>;)   // ŕ
+ZMK_MACRO(sk_m_cc, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(V)>, <&kp C>;)   // č
+ZMK_MACRO(sk_m_sc, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(V)>, <&kp S>;)   // š
+ZMK_MACRO(sk_m_zc, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(V)>, <&kp Z>;)   // ž
+ZMK_MACRO(sk_m_dc, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(V)>, <&kp D>;)   // ď
+ZMK_MACRO(sk_m_tc, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(V)>, <&kp T>;)   // ť
+ZMK_MACRO(sk_m_nc, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(V)>, <&kp N>;)   // ň
+ZMK_MACRO(sk_m_lc, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(V)>, <&kp L>;)   // ľ
+ZMK_MACRO(sk_m_ad, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(U)>, <&kp A>;)   // ä
+ZMK_MACRO(sk_m_ox, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(N6)>, <&kp O>;)  // ô
+
+// --- UPPERCASE (dead key → Shift+letter) ---
+ZMK_MACRO(sku_aa, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(E)>, <&kp LS(A)>;)   // Á
+ZMK_MACRO(sku_ea, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(E)>, <&kp LS(E)>;)   // É
+ZMK_MACRO(sku_ia, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(E)>, <&kp LS(I)>;)   // Í
+ZMK_MACRO(sku_oa, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(E)>, <&kp LS(O)>;)   // Ó
+ZMK_MACRO(sku_ua, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(E)>, <&kp LS(U)>;)   // Ú
+ZMK_MACRO(sku_ya, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(E)>, <&kp LS(Y)>;)   // Ý
+ZMK_MACRO(sku_ra, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(E)>, <&kp LS(R)>;)   // Ŕ
+ZMK_MACRO(sku_cc, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(V)>, <&kp LS(C)>;)   // Č
+ZMK_MACRO(sku_sc, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(V)>, <&kp LS(S)>;)   // Š
+ZMK_MACRO(sku_zc, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(V)>, <&kp LS(Z)>;)   // Ž
+ZMK_MACRO(sku_dc, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(V)>, <&kp LS(D)>;)   // Ď
+ZMK_MACRO(sku_tc, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(V)>, <&kp LS(T)>;)   // Ť
+ZMK_MACRO(sku_nc, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(V)>, <&kp LS(N)>;)   // Ň
+ZMK_MACRO(sku_lc, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(V)>, <&kp LS(L)>;)   // Ľ
+ZMK_MACRO(sku_ad, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(U)>, <&kp LS(A)>;)   // Ä
+ZMK_MACRO(sku_ox, wait-ms = <30>; tap-ms = <30>; bindings = <&kp RA(N6)>, <&kp LS(O)>;)  // Ô
+
+/* Slovak characters — leader (2-key combo) → lowercase */
+ZMK_LEADER_SEQUENCE(sk_aa,   &sk_m_aa,   A)  // á
+ZMK_LEADER_SEQUENCE(sk_ea,   &sk_m_ea,   E)  // é
+ZMK_LEADER_SEQUENCE(sk_ia,   &sk_m_ia,   I)  // í
+ZMK_LEADER_SEQUENCE(sk_oa,   &sk_m_oa,   O)  // ó
+ZMK_LEADER_SEQUENCE(sk_ua,   &sk_m_ua,   U)  // ú
+ZMK_LEADER_SEQUENCE(sk_ya,   &sk_m_ya,   Y)  // ý
+ZMK_LEADER_SEQUENCE(sk_ad,   &sk_m_ad,   W)  // ä
+ZMK_LEADER_SEQUENCE(sk_ox,   &sk_m_ox,   X)  // ô
+ZMK_LEADER_SEQUENCE(sk_cc,   &sk_m_cc,   C)  // č
+ZMK_LEADER_SEQUENCE(sk_sc,   &sk_m_sc,   S)  // š
+ZMK_LEADER_SEQUENCE(sk_zc,   &sk_m_zc,   Z)  // ž
+ZMK_LEADER_SEQUENCE(sk_dc,   &sk_m_dc,   D)  // ď
+ZMK_LEADER_SEQUENCE(sk_tc,   &sk_m_tc,   T)  // ť
+ZMK_LEADER_SEQUENCE(sk_nc,   &sk_m_nc,   N)  // ň
+ZMK_LEADER_SEQUENCE(sk_lc,   &sk_m_lc,   L)  // ľ
+ZMK_LEADER_SEQUENCE(sk_ra,   &sk_m_ra,   R)  // ŕ
 
 // BLE and USB
 #ifdef CONFIG_WIRELESS
@@ -54,3 +103,20 @@ ZMK_LEADER_SEQUENCE(ble,        &out OUT_BLE,   B L E)
 ZMK_LEADER_SEQUENCE(reset,      &sys_reset,     R E S E T)
 ZMK_LEADER_SEQUENCE(boot,       &bootloader,    B O O T)
 
+/* Slovak characters — leader_up (3-key combo) → UPPERCASE */
+ZMK_LEADER_UP_SEQUENCE(up_aa,   &sku_aa,   A)  // Á
+ZMK_LEADER_UP_SEQUENCE(up_ea,   &sku_ea,   E)  // É
+ZMK_LEADER_UP_SEQUENCE(up_ia,   &sku_ia,   I)  // Í
+ZMK_LEADER_UP_SEQUENCE(up_oa,   &sku_oa,   O)  // Ó
+ZMK_LEADER_UP_SEQUENCE(up_ua,   &sku_ua,   U)  // Ú
+ZMK_LEADER_UP_SEQUENCE(up_ya,   &sku_ya,   Y)  // Ý
+ZMK_LEADER_UP_SEQUENCE(up_ad,   &sku_ad,   W)  // Ä
+ZMK_LEADER_UP_SEQUENCE(up_ox,   &sku_ox,   X)  // Ô
+ZMK_LEADER_UP_SEQUENCE(up_cc,   &sku_cc,   C)  // Č
+ZMK_LEADER_UP_SEQUENCE(up_sc,   &sku_sc,   S)  // Š
+ZMK_LEADER_UP_SEQUENCE(up_zc,   &sku_zc,   Z)  // Ž
+ZMK_LEADER_UP_SEQUENCE(up_dc,   &sku_dc,   D)  // Ď
+ZMK_LEADER_UP_SEQUENCE(up_tc,   &sku_tc,   T)  // Ť
+ZMK_LEADER_UP_SEQUENCE(up_nc,   &sku_nc,   N)  // Ň
+ZMK_LEADER_UP_SEQUENCE(up_lc,   &sku_lc,   L)  // Ľ
+ZMK_LEADER_UP_SEQUENCE(up_ra,   &sku_ra,   R)  // Ŕ
